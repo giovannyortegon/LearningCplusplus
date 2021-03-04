@@ -1,0 +1,11 @@
+*.pdf
+*.zip
+*.o
+main
+Actividad[0-9]
+*.dev
+*.exe
+in_out
+*.docx
+*.layout
+a.out
