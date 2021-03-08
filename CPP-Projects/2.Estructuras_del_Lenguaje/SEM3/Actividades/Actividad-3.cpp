@@ -33,8 +33,8 @@ int main(void)
     cout <<endl <<"Digite el costo del zapato..."<<endl<<endl;
 	cin >> costoUnidad;
 /*
- *  De acuedo al costo del zapato se asigna un porcentaje de utlidad
- *  para calcular el precio del zapato
+ *  De acuedo al costo del zapato se clasifica por tipo A, B o C
+ *  y se le asigna un porcentaje de utlidad para calcular el precio del zapato
  */
 	if (costoUnidad <= 30000)
 	{ 
@@ -77,6 +77,7 @@ int main(void)
 // Imprimiendo Resultados de la informacion suministrada
     cout <<"LOS DATOS REGISTRADOS SON LOS SIGUIENTES"<<endl;
 	cout <<endl <<"REFERENCIA: " <<referencia <<endl;
+	cout <<"TIPO: " <<utilidad <<endl;
 	cout <<"DESCRIPCION: " <<descripcion <<endl;
 	cout <<"TALLA: " <<talla <<endl;
 	cout <<"DISPONIBILIDAD: "<<disponibilidad <<endl;

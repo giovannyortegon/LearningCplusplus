@@ -15,7 +15,7 @@ int main(void)
 	string referencia;
     int talla, costoUnidad, costoTotal, precioUnidad, precioTotal;
     int cantidad, utilidadUnidad, utilidadTotal, utilidadBruta;
-    float porcentajeUtilidad;
+    int porcentajeUtilidad;
 // Solicitando informacion al usuario
 	cout <<"ADMINISTRAR VENTAS DE ZAPATOS"<<endl;
 	cout <<"Digite la referencia del zapato... "<<endl<<endl;
@@ -35,7 +35,7 @@ int main(void)
 	cin >> costoUnidad;
 /*
  *  De acuedo al costo del zapato se asigna un porcentaje de utlidad
- *  para calcular el precio del zapato
+ *  y un tipo para calcular el precio del zapato
  */
 	if (costoUnidad <= 30000)
 	{ 
@@ -78,6 +78,7 @@ int main(void)
 // Imprimiendo Resultados de la informacion suministrada
     cout <<"LOS DATOS REGISTRADOS SON LOS SIGUIENTES"<<endl;
 	cout <<endl <<"REFERENCIA: " <<referencia <<endl;
+	cout <<"TIPO: " <<utilidad <<endl;
 	cout <<"DESCRIPCION: " <<descripcion <<endl;
 	cout <<"TALLA: " <<talla <<endl;
 	cout <<"DISPONIBILIDAD: "<<disponibilidad <<endl;
