@@ -20,16 +20,26 @@ int main()
 			hombres++;
 			edades_gm = edades_gm + edad;
 		}
-		else
+		else if (genero == 'F')
 		{
 			mujeres++;
 			edades_gf = edades_gf + edad;
 		}
+		else
+		{
+			i--;
+			cout <<"Opcion no valida.\n"
+		}
 	}
 
+	promedio_gm = edades_gm / hombres;
+	promedio_gf = edades_gf / mujeres;
+
 	cout <<"Total de Hombres: " <<hombres <<endl;
-	cout <<"Total promedio de edades de Hombres: " <<edades_gm/hombres <<endl;
+	cout <<"Total promedio de edades de Hombres: " <<promedio_gm <<endl;
 
 	cout <<"Total de Mujeres: " <<hombres <<endl;
-	cout <<"Total promedio de edades de Mujeres: " <<edades_gf/mujeres <<endl;
+	cout <<"Total promedio de edades de Mujeres: " <<promedio_gf <<endl;
+
+	return EXIT_SUCCESS;
 }
