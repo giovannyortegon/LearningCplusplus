@@ -1,5 +1,7 @@
 #include<iostream>
-
+/*
+ * main - Tablas de Miltiplicar
+ */
 using namespace std;
 
 int main()
@@ -33,6 +35,7 @@ int main()
 			cout <<tabla <<" x " <<multiplicador <<" = " <<producto <<endl;
 			multiplicador++;
 		}
+		break;
 	}
 
 	system("pause");
