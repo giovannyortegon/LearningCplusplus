@@ -1,32 +1,27 @@
 #include<iostream>
+
+using namespace std;
 /*
  * main - Tablas de Miltiplicar
  */
-using namespace std;
-
 int main()
 {
-	int tabla = 1, multiplicador, producto;
+// Inicializacion de componentes Tabla Multiplicar
+	int i = 1, tabla,multiplicador, producto;
 
-	while (tabla)
+// Despliega Menu
+	cout <<"Tablas de Multiplicar" <<endl;
+	while (i < 10)
 	{
-		cout <<endl <<"Tablas de Multiplicar" <<endl;
-		cout <<endl <<"Tabla del 1" <<endl;
-		cout <<"Tabla del 2" <<endl;
-		cout <<"Tabla del 3" <<endl;
-		cout <<"Tabla del 4" <<endl;
-		cout <<"Tabla del 5" <<endl;
-		cout <<"Tabla del 6" <<endl;
-		cout <<"Tabla del 7" <<endl;
-		cout <<"Tabla del 8" <<endl;
-		cout <<"Tabla del 9" <<endl;
+		cout <<"Tabla del " <<i <<endl;
+		i++;
+	}
 
-		cout <<endl <<"Seleccione una tabla de multiplicar: ";
-		cin >>tabla;
-
-		if (tabla <= 0 || tabla >=10)
-			break;
-
+// Solicita al usuario seleccionar de acuerdo al menu
+	cout <<endl <<"Seleccione una tabla de multiplicar: ";
+	cin >>tabla;
+	if (tabla > 0 && tabla < 10)
+	{
 		multiplicador = 1;
 
 		while (multiplicador < 10)
@@ -35,10 +30,11 @@ int main()
 			cout <<tabla <<" x " <<multiplicador <<" = " <<producto <<endl;
 			multiplicador++;
 		}
-		break;
 	}
 
-	system("pause");
+// Realiza una pausa en el sitema
+//	system("pause");
 
+// El programa finalizo correctamente
 	return EXIT_SUCCESS;
 }
