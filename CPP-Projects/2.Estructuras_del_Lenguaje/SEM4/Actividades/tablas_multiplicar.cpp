@@ -22,13 +22,10 @@ int main()
 	cin >>tabla;
 	if (tabla > 0 && tabla < 10)
 	{
-		multiplicador = 1;
-
-		while (multiplicador < 10)
+		for (multiplicador = 1; multiplicador < 10; multiplicador++)
 		{
 			producto = tabla * multiplicador;
 			cout <<tabla <<" x " <<multiplicador <<" = " <<producto <<endl;
-			multiplicador++;
 		}
 	}
 
