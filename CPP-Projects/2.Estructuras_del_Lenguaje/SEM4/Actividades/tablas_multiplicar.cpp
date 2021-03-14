@@ -33,8 +33,9 @@ int main()
 	}
 
 // Realiza una pausa en el sitema
-//	system("pause");
+	system("pause");
 
 // El programa finalizo correctamente
 	return EXIT_SUCCESS;
+/* Giovanny Ortegon */
 }
