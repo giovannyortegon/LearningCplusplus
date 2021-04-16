@@ -25,21 +25,24 @@ class Circle
 Circle::Circle(double rds)
 :radius(rds)
 {
-	cout <<"The parameter constructor was called." <<endl;
+	cout <<"The parameter constructor was called. " <<radius;
+	cout <<endl;
 }
 
 // Definition of default constructor
 Circle::Circle()
 :radius(0.0)
 {
-	cout <<"The default constructor was called." <<endl;
+	cout <<"The default constructor was called. " <<radius;
+	cout <<endl;
 }
 
 // Default of copy constructor
 Circle::Circle(const Circle &circle)
 :radius(circle.radius)
 {
-	cout <<"The copy constructor was called." <<endl;
+	cout <<"The copy constructor was called. " <<radius;
+	cout <<endl;
 }
 
 // Definition of destructor
@@ -95,7 +98,7 @@ int main()
 
 	// Instantiation of circle3 and applying operation on it
 	Circle circle3;
-	circle3.setRadius(10.5);
+//	circle3.setRadius(10.5);
 	cout <<"Radius: " <<circle3.getRadius() <<endl;
 	cout <<"Area: " <<circle3.getArea() <<endl;
 	cout <<"Perimeter: " <<circle3.getPerimeter() <<endl <<endl;
