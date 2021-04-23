@@ -106,6 +106,54 @@ class CCuenta
 			return tipoDeInteres;
 		}
 };
+class CCuentaAhorro: public CCuenta
+{
+	// Atributos
+	private:
+		double cuotaMantenimiento;
+	// Metodos
+	public:
+		CCuentaAhorro(){}	// constructor sin parametros
+
+		CCuentaAhorro(string nom, string cue, double sal,
+			double tipo, double mant):
+			CCuenta(nom, cue, sal, tipo)	// Invoca al constructor CCuenta
+		{
+			asignarCuotaManten(mant);		// Inicia cuotaMantenimiento
+		}
+
+		void asignarCuotaManten(double cantidad)
+		{
+			if (cantidad < 0)
+			{
+				cout <<"Error: cantidad negativa\n";
+				return;
+			}
+			cuotaMantenimiento = cantidad;
+		}
+		double obtenerCuotaManten()
+		{
+			return cuotaMantenimiento;
+		}
+
+		void reintegro(double cantidad)
+		{
+			double saldo = estado();
+			double tipoDeInteres = obtenerTipoDeInteres();
+
+			if (tipoDeInteres >= 3.5)
+			{
+				if (saldo - cantidad < 1500)
+				{
+					cout <<"Error: no dispone de esa cantidad\n";
+					return;
+				}
+			}
+			// Invocar al metodo reintegro de la clase base
+			//  tambien llamada superclase
+			CCuenta::reintegro(cantidad);
+		}
+};
 /*
  * Funcion main:
  *	Punto de entrada y salida al programa
@@ -115,9 +163,19 @@ class CCuenta
 int main()
 {
 //	CCuenta cuenta01 = CCuenta();
-	CCuenta cuenta01;
+//	CCuenta cuenta01;
+	CCuentaAhorro cuenta01;
+
 //	CCuenta cuenta02 = CCuenta("otro nombre", "otra cuenta", 6000, 3.5);
-	CCuenta cuenta02("otro nombre", "otra cuenta", 6000, 3.5);
+//	CCuenta cuenta02("otro nombre", "otra cuenta", 6000, 3.5);
+	CCuentaAhorro cuenta02("Otro nombre", "Otra cuenta", 6000, 3.5, 2);
+
+	// Cobrar cuota de mantenimiento
+	cuenta02.reintegro(cuenta02.obtenerCuotaManten());
+	// Ingreso
+	cuenta02.ingreso(6000);
+	// Reintegro
+	cuenta02.reintegro(10000);
 
 	cuenta01.asignarNombre("un nombre");
 	cuenta01.asignarCuenta("una cuenta");
