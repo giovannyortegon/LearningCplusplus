@@ -39,7 +39,7 @@ int main()
 	miOrdenador.Estado();
 	miOrdenador.CerrarAplicacion();
 	miOrdenador.ApagarOrdenador();
-	miOrdenador.Estado();
+	miOrdenador.Estado() const;
 
 	return (0);
 }
@@ -48,6 +48,7 @@ COrdenador::COrdenador()
 {
 	cout <<"Constructor.\n";
 }
+
 COrdenador::~COrdenador()
 {
 	cout <<"Destructor.\n";
@@ -133,7 +134,7 @@ void COrdenador::ApagarOrdenador()
 		cout <<"El ordenador ha sido apagado.\n";
 	}
 }
-void COrdenador::Estado()
+void COrdenador::Estado() const
 {
 
 	if (encendido == true)
