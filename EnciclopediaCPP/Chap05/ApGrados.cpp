@@ -1,29 +1,6 @@
-#include<iostream>
-#include<iomanip>
+#include "CGrados.h"
 
 using namespace std;
-
-class CGrados
-{
-	private:
-		float gradosC;		// grados centigrados
-	public:
-		void AsignarCentigrados(float gC)
-		{
-			// Establecer el atributo grados centigrados
-			gradosC = gC;
-		}
-		float ObtenerFahrenheit() const
-		{
-			// Retorna los grados fahrenheit equivlentes a gradosC
-			return 9.0F/5.0F * gradosC + 32.0;
-		}
-		float ObtenerCentigrados() const
-		{
-			return gradosC;		// Retorna los grados centigrados
-		}
-
-};
 
 int main()
 {
