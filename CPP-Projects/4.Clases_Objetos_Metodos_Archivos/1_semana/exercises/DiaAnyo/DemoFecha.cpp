@@ -14,7 +14,7 @@ int main()
 
     hoy = new DiaAnyo(d, m);
 
-    cout <<"Introduzca fecha de nacimiento, dia";
+    cout <<"Introduzca fecha de nacimiento, dia: ";
     cin >>d;
     cout <<"Introduzca el numero de mes: ";
     cin >>m;
