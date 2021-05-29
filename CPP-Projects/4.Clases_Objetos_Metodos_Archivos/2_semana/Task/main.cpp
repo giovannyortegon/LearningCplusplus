@@ -5,12 +5,26 @@
  */
 int main(void)
 {
-    Operaciones op1 = Operaciones(4, 2);
-    Operaciones op2 = Operaciones(3.1, 1.5);
-    Operaciones op3 = Operaciones("4", "2");
+    Operaciones op0 = Operaciones();
+    Operaciones op1 = Operaciones(4);
+    Operaciones op2 = Operaciones(4, 2);
+    Operaciones op3 = Operaciones(3.1, 1.5);
+    Operaciones op4 = Operaciones("4", "2");
 
- // Operaciones con tipo enteros
-    cout <<"Operaciones con tipo enteros: "<<endl;
+// Operaciones con valores enteros por defecto
+    cout <<"Operaciones con valores por defecto: "<<endl;
+    op0.ImprimirEntrada();
+    op0.Suma();
+    op0.Resta();
+    op0.Multiplicacion();
+    op0.Division();
+    op0.Potencia();
+
+    cout <<endl;
+
+ // Operaciones con tipo entero
+    cout <<"Operaciones con tipo entero con un parametro: "<<endl;
+    op1.ImprimirEntrada();
     op1.Suma();
     op1.Resta();
     op1.Multiplicacion();
@@ -19,8 +33,9 @@ int main(void)
 
     cout <<endl;
 
-// Operaciones con tipo doubles
-    cout <<"Operaciones con tipo double: "<<endl;
+// Operaciones con tipo entero con dos parametros
+    cout <<"Operaciones con tipo Entero con dos parametros: "<<endl;
+    op2.ImprimirEntrada();
     op2.Suma();
     op2.Resta();
     op2.Multiplicacion();
@@ -29,12 +44,9 @@ int main(void)
 
     cout <<endl;
 
-/*
- * Operaciones con tipo string
- * contiene la misma informacion de entrada
- * a la operacin con numeros tipo enteros.
- */
-    cout <<"Operaciones con tipo string: "<<endl;
+// Operaciones con tipo double
+    cout <<"Operaciones con tipo double: "<<endl;
+    op3.ImprimirEntrada();
     op3.Suma();
     op3.Resta();
     op3.Multiplicacion();
@@ -42,6 +54,21 @@ int main(void)
     op3.Potencia();
 
     cout <<endl;
+/*
+ * Operaciones con tipo string
+ * contiene la misma informacion de entrada
+ * a la operacin con numeros tipo enteros.
+ */
+    cout <<"Operaciones con tipo string: "<<endl;
+    op4.ImprimirEntrada();
+    op4.Suma();
+    op4.Resta();
+    op4.Multiplicacion();
+    op4.Division();
+    op4.Potencia();
+
+    cout <<endl;
+
     getch();
 // Finalizacion existosa
     return (0);
