@@ -1,11 +1,11 @@
 #include "PVentas.h"
 #include<iomanip>
-#include<conio.h>
+//#include<conio.h>
 
 
 int main(void)
 {
-    int cant, valor, promedio, TotalPromedio;
+    int cant = 0, valor = 0, promedio = 0, TotalPromedio = 0;
     string nombre;
 
     cout <<"\n***********************************\n";
@@ -15,18 +15,7 @@ int main(void)
     cout <<"\nDe Cuantos vendedores desea ver el promedio: ";
     cin >>cant;
 
-    if (cant <= 0);
-    {
-        cout <<"\n[!] Numero no valido. Debe ser 1 o mayor." <<endl;
-        return (-1);
-    }
-    else if (cant == 1)
-    {
-        PVentas * empleado = new PVentas(); 
-    }
-
-    empleado[0].set
-
+    PVentas * empleado = new PVentas[cant];
 
     cout <<"\nIntroduzca el nombre de los Empleados y Totalidad por Mes:\n";
     for (int i = 0; i < cant; i++)
@@ -59,7 +48,11 @@ int main(void)
         promedio = empleado[i].calcularPromedio();
         cout <<"Promedio de Venta: $";
         cout <<setw(2) <<promedio;
-        TotalPromedio += promedio; 
+        
+        if (cant > 1)
+            TotalPromedio += promedio;
+        else
+            TotalPromedio = promedio;
     }
 
     cout <<"\n\n**********************************\n";
@@ -68,6 +61,6 @@ int main(void)
     cout <<"\n**********************************\n";
 
     delete [] empleado;
-    getch();
+//    getch();
     return (0);
 }

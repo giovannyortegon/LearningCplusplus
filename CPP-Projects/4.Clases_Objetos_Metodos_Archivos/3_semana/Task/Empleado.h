@@ -4,16 +4,14 @@
 #include<iostream>
 
 using namespace std;
+
 class Empleado
 {
     private:
-        string * empleado;
-        int nEmpleado;
-    protected:
-        int * setMemoria(unsigned int);
+        string empleado;
+
     public:
         Empleado();
-        Empleado(unsigned int);
         ~Empleado();
         void setNombre(string);
         string getNombre() const;

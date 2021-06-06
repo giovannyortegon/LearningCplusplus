@@ -4,16 +4,17 @@
 #include "Empleado.h"
 
 class PVentas: public Empleado
-{   
+{
     private:
-        string empleado;
         int * Meses;
         unsigned int NMeses;
+
+    protected:
+        int * setMemoria(unsigned int);
 
     public:
         PVentas();
         PVentas(unsigned int);
-        PVentas(unsigned int, unsigned int);
         ~PVentas();
         void setMes(int, unsigned int);
         int getMes(unsigned int) const;
