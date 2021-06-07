@@ -4,7 +4,7 @@
 #include<iostream>
 #include<cstdlib>
 #include<math.h>
-#include<conio.h>
+//#include<conio.h>
 
 using namespace std;
 

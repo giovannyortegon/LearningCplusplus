@@ -69,7 +69,7 @@ int main(void)
 
     cout <<endl;
 
-    getch();
+ //   getch();
 // Finalizacion existosa
     return (0);
 }
