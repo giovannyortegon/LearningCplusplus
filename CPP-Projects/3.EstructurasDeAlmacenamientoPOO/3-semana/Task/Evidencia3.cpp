@@ -12,12 +12,12 @@
 
 using namespace std;
 
-/* Global Variables */
 #define MAX 255             // caracteres a extraer 
 #define BUF 30              // caracteres a escribir
 #define EMPLEADOS 100       // maximo de empleados a calcular
 #define HORAEXTRA 6645      // equvalente a una hora extra
 
+/* Global Variables */
 /**
  * nombre -  nombre del empleado
  * cargo - ocupacion del empleado dentro de la empresaa
@@ -67,7 +67,7 @@ void DescuentoPorSeguro(double );
 */
 int main(void)
 {
-    int n_empleados;
+    int n_empleados;    // almacena cantidad de empleados
 
 	cout <<"\n************************************\n";
 	cout <<"******* Evidencia - Semana 3 *******";
@@ -83,9 +83,9 @@ int main(void)
     }
 
 	titulo_formulario();
-	input_datos_empleados(n_empleados);
+	input_datos_empleados(n_empleados);     // Ingresa datos del empleado
 	info_empleado();
-	mostar_datos_empleados(n_empleados);
+	mostar_datos_empleados(n_empleados);    // Muestra datos del empleado
 
 	cout <<"\n***********************************\n\n";
 
@@ -93,7 +93,7 @@ int main(void)
 	getch();
 #endif
 
-	return (0);
+	return (0); // Finalizo de forma exitosa
 }
 
 /**
