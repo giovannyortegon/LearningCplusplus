@@ -1,50 +1,64 @@
 #include<iostream>
 #include<string>
+#include<iomanip>
+
+#if defined(_WIN32)
 #include<conio.h>
+#endif
+
+using namespace std;
 
 #define MAX 255
 #define BUF 30
-#define EMPLEADOS 100;
+#define EMPLEADOS 100
+#define HORAEXTRA 6645
 
-void ingreso_datos_empleados(const unsigned int n);
-void mostar_datos_empleados(int *, char *, int *, char*, int *, ****)
-using namespace std;
+char nombre[EMPLEADOS][BUF], cargo[EMPLEADOS][BUF];
+int cedula[EMPLEADOS], telefono[EMPLEADOS], salario_basico[EMPLEADOS];
+double HExtraT[EMPLEADOS], HExtraD[EMPLEADOS], DXPrestamo[EMPLEADOS];
+double Ahorro[EMPLEADOS], SegSocP[EMPLEADOS], SegSocD[EMPLEADOS];
+double SalarioTotal[EMPLEADOS];
+
+void titulo_formulario();
+void info_empleado();
+void input_datos_empleados(const unsigned int);
+double salario_total(const unsigned int);
+void mostar_datos_empleados(const unsigned int);
+double HorasExtra(double );
+void DescuentoPorSeguro(double );
 
 int main(void)
 {
-    int n_empleados, i;
+    int n_empleados;
 
-    cout <<"De cuantos empleados desea generar pagos?: ";
+	cout <<"\n************************************\n";
+	cout <<"******* Evidencia - Semana 3 *******";
+	cout <<"\n************************************\n\n";
+
+    cout <<"De cuantos empleados desea generar pagos? ";
     cin >> n_empleados;
 
-    ingreso_datos_empleados(n_empleados);
+	titulo_formulario();
+	input_datos_empleados(n_empleados);
+	info_empleado();
+	mostar_datos_empleados(n_empleados);
 
-    i = 0;
+	cout <<"\n***********************************\n\n";
 
-    while(i < n_empleados)
-    {
-        cout <<"\nEmpeado " <<i + 1 <<"\n";
-        cout <<cedula[i] <<"\n";
-        cout <<nombre[i] <<"\n";
-        cout <<telefono[i] <<"\n";
-        cout <<cargo[i] <<"\n";
-        i++;
-    }
+#if defined(_WIN32)
+	getch();
+#endif
 
+	return (0);
 }
-void ingreso_datos_empleados(const unsigned int n_empleados)
+void input_datos_empleados(const unsigned int n_empleados)
 {
-    int cedula[EMPLEADOS], telefono[EMPLEADOS], salario_basico[EMPLEADOS];
-    double HExtra[EMPLEADOS], DXPrestamo[EMPLEADOS], Ahorro[EMPLEADOS], SegSoc[EMPLEADOS];
-    char SN = 'N';
-    char nombre[EMPLEADOS][BUF], cargo[EMPLEADOS][BUF];
-
-
-    int i = 0;
+    unsigned int i = 0;
+	char SN = 'N';
 
     while(i < n_empleados)
     {
-        cout <<"\nEmpeado " <<i + 1 <<"\n";
+        cout <<"\nEmpleado " <<i + 1 <<"\n";
         cout <<"Ingrese Numero de Cedula:\n";
         cin >>cedula[i];
 
@@ -60,20 +74,27 @@ void ingreso_datos_empleados(const unsigned int n_empleados)
         cout <<"Ingrese cargo: ";
         cin.getline(cargo[i], BUF);
 
-        cout <<"Realozo Horas Extras? (S/N): ";
-        cin >>SN;
-        if (SN == 'S' || SN == 's')
-        {
-            cout <<"Ingrese la cantidad: ";
-            cin >>HExtra[i];
-        }else
-            HExtra[i] = 0; 
+		cout <<"Ingrese Salario Basico: $";
+		cin >>salario_basico[i];
 
-        cout <<"Ha optemido descuentos por prestamos? (S/N): ";
+        cout <<"Realizo Horas Extras? (S/N): ";
         cin >>SN;
         if (SN == 'S' || SN == 's')
         {
-            cout <<"Ingrese el valor: ";
+            cout <<"Ingrese la cantidad (Tiempo): ";
+            cin >>HExtraT[i];
+			HExtraD[i] = HorasExtra(HExtraT[i]);
+        }
+		else
+		{
+           HExtraT[i] = 0;
+		   HExtraD[i] = 0;
+		}
+        cout <<"Ha obtemido descuentos por prestamos? (S/N): ";
+        cin >>SN;
+        if (SN == 'S' || SN == 's')
+        {
+            cout <<"Ingrese el valor: $";
             cin >>DXPrestamo[i];
         }
         else
@@ -83,13 +104,67 @@ void ingreso_datos_empleados(const unsigned int n_empleados)
         cin >>SN;
         if (SN == 'S' || SN == 's')
         {
-            cout <<"Ingrese cantidad: ";
+            cout <<"Ingrese cantidad: $";
             cin >>Ahorro[i];
         }
 
-        cout <<"Ingrese el valor por descuento de Seguridad Social";
-        cin >>SegSoc;
+        cout <<"Ingrese el Porcentaje por descuento de Seguridad Social:\n";
+		cout <<"Ejemplo: 8.9 (sin signo - %): ";
+        cin >>SegSocP[i];
 
+		SalarioTotal[i] = salario_total(i);
+
+        i++;
+    }
+}
+void titulo_formulario()
+{
+	cout <<"\n***********************************\n";
+	cout <<"**** Formulario datos Empleado ****";
+	cout <<"\n***********************************\n";
+}
+void info_empleado()
+{
+	cout <<"\n************************************\n";
+	cout <<"***** Informacion del Empleado *****";
+	cout <<"\n************************************\n";
+}
+
+double HorasExtra(double cant)
+{
+	return HORAEXTRA * cant;
+}
+double salario_total(const unsigned int idx)
+{
+	int salario = (salario_basico[idx] + HExtraD[idx]);
+	SegSocD[idx] = salario * (SegSocP[idx] / 100);
+
+	return salario - SegSocD[idx] - DXPrestamo[idx] + Ahorro[idx];
+}
+void mostar_datos_empleados(const unsigned int n_empleados)
+{
+	unsigned int i = 0;
+
+    while(i < n_empleados)
+    {
+        cout <<"\nEmpleado " <<i + 1 <<"\n";
+        cout <<"Numero Cedula: " <<cedula[i] <<"\n";
+        cout <<"Nombre Completo: " <<nombre[i] <<"\n";
+        cout <<"Numero Telefonico: " <<telefono[i] <<"\n";
+        cout <<"Cargo: "<<cargo[i] <<"\n";
+		cout <<"Salario Basico: $" <<setprecision(10)
+								  <<salario_basico[i] <<"\n";
+		cout <<"Horas Extra en Tiempo:  " <<HExtraT[i] <<"\n";
+		cout <<"Horas Extra en Dinero: $" <<setprecision(10)
+										  <<HExtraD[i] <<"\n";
+		cout <<"Descuento por Prestamo: $" <<setprecision(10)
+										   <<DXPrestamo[i] <<"\n";
+		cout <<"Dinero Ahorrado: $" <<Ahorro[i] <<"\n";
+		cout <<"Descuento por Seguro Social: % " <<SegSocP[i] <<"\n";
+		cout <<"Descuento por Seguro Social: $" <<setprecision(10)
+												   <<SegSocD[i] <<"\n";
+		cout <<"El Valor a Pagar es de $" <<setprecision(10)
+										  <<SalarioTotal[i] <<" =\n";
         i++;
     }
 }
