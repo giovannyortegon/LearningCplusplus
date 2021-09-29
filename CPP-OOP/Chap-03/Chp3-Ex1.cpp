@@ -8,12 +8,14 @@ struct collection
 	float y;
 };
 
-int main(void)
+int main()
 {
-	collection *item;
+	collection * item;
+
 	item = new collection;
 
 	item->x = 9;
+
 	(*item).y = 120.77;
 
 	cout <<(*item).x <<" " <<item->y <<endl;
