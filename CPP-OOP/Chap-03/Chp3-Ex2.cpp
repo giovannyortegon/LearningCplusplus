@@ -8,28 +8,29 @@ struct collection
 	float y;
 };
 
-int main()
+int main(void)
 {
 	int numElements;
-	int * intArray;					// pointer declaration
-	collection * collectionArray;	// to eventual arrays
+	int *intArray;
+	collection * collectionArray;
 
 	cout <<"How many elements would you like? " <<flush;
-	cin >> numElements;
+	cin >>numElements;
 
-	intArray = new int[numElements];	// allocate array bodies
+	intArray = new int[numElements];
 	collectionArray = new collection[numElements];
 
 	// load each array with values
 	for (int i = 0; i < numElements; i++)
 	{
-		intArray[i] = i;		// load each array w values
-		collectionArray[i].x = i;	// using array notation []
+		intArray[i] = i;
+		collectionArray[i].x = i;
 		collectionArray[i].y = i + .5;
 
-		// alternatively usr ptr notation to print two values
-		cout <<* (intArray + 1) <<" ";
-		cout <<(* (collectionArray + i)).y <<endl;
+		cout <<intArray[i] <<"\n";
+		// alternatively use ptr notation to print two values
+		cout <<(*(collectionArray + i)).x <<" ";
+		cout <<(*(collectionArray + i)).y <<endl;
 	}
 
 	delete intArray;

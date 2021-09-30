@@ -5,32 +5,31 @@ using namespace std;
 int main()
 {
 	int numRows, numColumns;
-	float **TwoDimArray;					// pointer to pointer
+	float ** TwoDimArray;
 
 	cout <<"Enter number of rows: " <<flush;
-	cin >> numRows;
+	cin >>numRows;
 
-	TwoDimArray = new float * [numRows];	// allocate row ptr
-
-	cout << "Enter number of columns: ";
-	cin >> numColumns;
+	TwoDimArray = new float * [numRows];
+	cout <<"Enter number of columns: ";
+	cin >>numColumns;
 
 	for (int i = 0; i < numRows; i++)
 	{
-		TwoDimArray[i] = new float [numColumns];
-		// load each column entry with data
+		// allocate column quantity for each row
+		TwoDimArray[i] = new float[numColumns];
 		for (int j = 0; j < numColumns; j++)
 		{
 			TwoDimArray[i][j] = i + j + .05;
-			cout << TwoDimArray[i][j] <<" ";
+			cout <<TwoDimArray[i][j] <<" ";
 		}
-		cout <<endl;						// print new line between rows
+		cout <<endl;
 	}
 
-	for(int i = 0; i < numRows; i++)
-		delete TwoDimArray[i];				// delete columns for each row
+	for (int i = 0; i < numRows; i++)
+		delete TwoDimArray[i];
 
-	delete TwoDimArray;						// delete allocated rows
+	delete TwoDimArray;
 
 	return (0);
 }
