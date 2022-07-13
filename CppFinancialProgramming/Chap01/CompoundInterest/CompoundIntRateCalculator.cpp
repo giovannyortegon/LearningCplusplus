@@ -14,7 +14,7 @@ CompoundIntRateCalculator &CompoundIntRateCalculator::operator=(const CompoundIn
     return (*this);
 }
 double CompoundIntRateCalculator::multiplePeriod(double value, int numPeriods) {
-    double f = value * pow(1 + m_rate, numPeriods);
+    double f = value * pow((1 + m_rate), numPeriods);
     return (f);
 }
 

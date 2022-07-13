@@ -11,7 +11,7 @@ int main(int argc, char * argv[]) {
     int num_periods = atof(argv[3]);
 
     CompoundIntRateCalculator cIRCal(rate);
-    double res = cIRCal.multiplePeriod(rate, num_periods);
+    double res = cIRCal.multiplePeriod(value, num_periods);
 
     double contRes = cIRCal.continuousCompounding(value, num_periods);
 
